@@ -1,0 +1,7 @@
+{
+    "workbench.editor.empty.hint": "text",
+    "workbench.editor.enablePreviewFromCodeNavigation": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.highlightModifiedTabs": false,
+    "workbench.editor.decorations.colors": true
+}
