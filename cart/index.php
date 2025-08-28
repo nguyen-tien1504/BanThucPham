@@ -13,7 +13,6 @@ $row = mysqli_fetch_array($query_ThanhVien);
   <meta charset=utf-8>
   <title>Sản phẩm</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="../bootstrap/js/bootstrap.bundle.js">
@@ -25,7 +24,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
 </head>
 
 <body>
-  <div class="sticky-top">
+  <div>
     <div class="menu sticky-top">
       <nav class="navbar navbar-expand-lg header-custom" style="background-color: #248A32;">
         <div class="container-fluid font-header-custom">
@@ -42,14 +41,11 @@ $row = mysqli_fetch_array($query_ThanhVien);
               <li class="nav-item">
                 <a class="nav-link active" href="../sanpham/index.php" style="color:white;">TẤT CẢ SẢN PHẨM</a>
               </li>
-
               <!-- Search -->
-
-
               <li class="nav-item">
-<a class="nav-link" href="../cart" style="color:white;">
-    <i class="fas fa-shopping-cart"></i> GIỎ HÀNG
-</a>
+                <a class="nav-link" href="../cart" style="color:white;">
+                  <i class="fas fa-shopping-cart"></i> GIỎ HÀNG
+                </a>
               </li>
               <?php if (isset($_SESSION['TenDangNhap'])) { ?>
 
@@ -60,7 +56,7 @@ $row = mysqli_fetch_array($query_ThanhVien);
                   <a class="nav-link" href="../ThanhVien/logout.php" style="color:white;">ĐĂNG XUẤT</a>
                 </li>
                 <li class="nav-item">
-                <a type="button" class="btn btn-danger custom-red-btn" 
+                  <a type="button" class="btn btn-danger custom-red-btn"
 
                     href="../ThanhVien/profile.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>" id="btn"
                     style="color:white;"></span>
@@ -73,9 +69,9 @@ $row = mysqli_fetch_array($query_ThanhVien);
             </ul>
             <?php
             if (isset($_SESSION['cart'])) {
-              ?>
+            ?>
               <h5></h5>
-              <?php
+            <?php
             }
             ?>
           </div>
@@ -98,13 +94,12 @@ $row = mysqli_fetch_array($query_ThanhVien);
         <?php
         if (isset($_SESSION['ID_ThanhVien'])) {
 
-          ?>
+        ?>
           <form method="POST" action="../order/saveorder.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>">
             <table class="table">
               <thead>
                 <tr>
                   <th scope="col">STT</th>
-                  <th scope="col">ID</th>
                   <th scope="col">Tên sản phẩm</th>
                   <th scope="col">Hình ảnh</th>
                   <th scope="col">Số lượng</th>
@@ -118,43 +113,42 @@ $row = mysqli_fetch_array($query_ThanhVien);
                 $allMoney = 0;
                 $allAmount = 0;
 
-                ?>
-                <tbody>
-                <?php foreach ($_SESSION['cart'] as $key => $value) {
-    $i++;
-    ?>
-     <tr>
-  <td><?= $i ?></td>
-  <td><?= $key ?></td>
-  <td><?= $value['TenSanPham'] ?></td>
-  <td><img src="../image/product/<?= $value['Img'] ?>" style="width:60px;"></td>
-  <td>
-    <div style="display: flex; align-items: center;">
-      <!-- Nút giảm số lượng -->
-      <a href="add.php?id=<?= $key ?>&soluong=-1" class="btn btn-sm btn-danger">-</a>
-
-      <!-- Hiển thị số lượng -->
-      <input type="text" value="<?= $value['qty'] ?>" readonly style="width: 40px; text-align: center; margin: 0 5px;">
-
-      <!-- Nút tăng số lượng -->
-      <a href="add.php?id=<?= $key ?>&soluong=1" class="btn btn-sm btn-success">+</a>
-    </div>
-  </td>
-  <td><?= $value['GiaBan'] ?> Đồng/Kg</td>
-  <td>
-    <a href="add.php?id=<?= $key ?>&soluong=0" class="btn btn-sm btn-outline-danger">Xóa</a>
-  </td>
-</tr>
-
-                  </tbody>
-                  <?php
-                  }
-              } else {
-                ?>
-                <h4>Không có gì trong giỏ hàng</h4>
-                <?php
-              }
               ?>
+                <tbody>
+                  <?php foreach ($_SESSION['cart'] as $key => $value) {
+                    $i++;
+                  ?>
+                    <tr>
+                      <td><?= $i ?></td>
+                      <td><?= $value['TenSanPham'] ?></td>
+                      <td><img src="../image/product/<?= $value['Img'] ?>" style="width:60px;"></td>
+                      <td>
+                        <div style="display: flex; align-items: center;">
+                          <!-- Nút giảm số lượng -->
+                          <a href="add.php?id=<?= $key ?>&soluong=-1" class="btn btn-sm btn-danger">-</a>
+
+                          <!-- Hiển thị số lượng -->
+                          <input type="text" value="<?= $value['qty'] ?>" readonly style="width: 40px; text-align: center; margin: 0 5px;">
+
+                          <!-- Nút tăng số lượng -->
+                          <a href="add.php?id=<?= $key ?>&soluong=1" class="btn btn-sm btn-success">+</a>
+                        </div>
+                      </td>
+                      <td><?= number_format($value['GiaBan'], 0, ',', '.')  ?> Đồng/Kg</td>
+                      <td>
+                        <a href="add.php?id=<?= $key ?>&soluong=0" class="btn btn-sm btn-outline-danger">Xóa</a>
+                      </td>
+                    </tr>
+
+                </tbody>
+              <?php
+                  }
+                } else {
+              ?>
+              <h4>Không có gì trong giỏ hàng</h4>
+            <?php
+                }
+            ?>
 
             </table>
             <?php if (isset($_SESSION['cart'])) {
@@ -165,60 +159,41 @@ $row = mysqli_fetch_array($query_ThanhVien);
                 $allAmount += $amount;
               }
 
-              ?>
-              <h4 style="float: right;">Tổng tiền :
-                <?= $allMoney ?> Đồng
-              </h4>
-              <h5 style="float: right; width: 3%;">
-               </h5>
-              </br>
+            ?>
+              <div class="text-right">
+                <h4>Tổng tiền :
+                  <?= number_format($allMoney, 0, ',', '.') ?> Đồng
+                </h4>
+                <h5>Tổng món:
+                  <?= $allAmount ?> món
+                </h5>
+              </div>
 
-              <?php
+            <?php
               $_SESSION['$allMoney'] = $allMoney;
               $_SESSION['$allAmount'] = $allAmount;
             }
             ?>
-            </br>
-            </br>
-        </div>
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-  <a href="../sanpham/index.php" class="btn btn-success" style="width: 20%;">Mua thêm</a>
-  <input type="submit" class="btn btn-info" name='submit' value="Thanh toán" style="width: 20%">
-</div>
-        </form>
-        <?php
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <a href="../sanpham/index.php" class="btn btn-success" style="width: 20%;">Mua thêm</a>
+        <input type="submit" class="btn btn-info" name='submit' value="Thanh toán" style="width: 20%">
+      </div>
+      </form>
+    <?php
         } else {
-          ?>
-        <h4>Vui lòng đăng nhập để mua hàng0</h4>
-        <?php
+    ?>
+      <h4>Vui lòng đăng nhập để mua hàng0</h4>
+    <?php
         }
-        ?>
-
-
+    ?>
+    <hr class="large mt-5">
     </div>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
   </div>
 
 
-
-  <hr class="hr--large">
-  <div class="space" style="text-align: center; background-color: #white ">
-    <img style="" src="../image/thanhspace.PNG">
-
-
+  <div class="space" style="text-align: center; background-color: white">
+    <img src="../image/thanhspace.PNG">
     <p class="site-footer__copyright-content">
       © 2025,
       <a href="http://localhost/BanThucPham/index.php" \title="" style=" color: red"> HUTECH</a>
