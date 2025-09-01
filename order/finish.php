@@ -41,9 +41,9 @@ session_start();
 
 
               <li class="nav-item">
-<a class="nav-link" href="../cart" style="color:white;">
-    <i class="fas fa-shopping-cart"></i> GIỎ HÀNG
-</a>
+                <a class="nav-link" href="../cart" style="color:white;">
+                  <i class="fas fa-shopping-cart"></i> GIỎ HÀNG
+                </a>
               </li>
               <?php if (isset($_SESSION['TenDangNhap'])) { ?>
 
@@ -54,8 +54,8 @@ session_start();
                   <a class="nav-link" href="../ThanhVien/logout.php" style="color:white;">ĐĂNG XUẤT</a>
                 </li>
                 <li class="nav-item">
-                <a type="button" class="btn btn-danger custom-red-btn" 
-                href="../ThanhVien/profile.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>" id="btn"
+                  <a type="button" class="btn btn-danger custom-red-btn"
+                    href="../ThanhVien/profile.php?id=<?php echo $_SESSION['ID_ThanhVien'] ?>" id="btn"
                     style="color:white;"></span>
                     <?php echo $_SESSION['HoVaTen'] ?>
                   </a>
@@ -64,9 +64,6 @@ session_start();
                 <li><a type="button" class="btn btn-secondary" href="../ThanhVien/login.php">&nbsp;ĐĂNG NHẬP </a></li>
               <?php } ?>
             </ul>
-
-
-
           </div>
         </div>
         <form action="../sanpham/actionSanPham.php?TimKiem" class="navbar-form navbar-right" method="POST">
@@ -92,24 +89,24 @@ session_start();
               </div>
             </div>
             <div class="col-12">
-  <div class="d-flex flex-column">
-    <label for="bankSelect" class="text mb-1">Tên Ngân Hàng</label>
-    <select id="bankSelect" class="form-select mb-3" aria-label="Chọn ngân hàng">
-      <option value="" disabled selected>Chọn ngân hàng</option>
-      <option value="Agribank">Agribank</option>
-      <option value="Vietcombank">Vietcombank</option>
-      <option value="VietinBank">VietinBank</option>
-      <option value="BIDV">BIDV</option>
-      <option value="ACB">ACB</option>
-      <option value="Techcombank">Techcombank</option>
-      <option value="VPBank">VPBank</option>
-      <option value="MB">MB</option>
-      <option value="TPBank">TPBank</option>
-      <option value="HDBank">HDBank</option>
-      <!-- Thêm các ngân hàng khác nếu cần -->
-    </select>
-  </div>
-</div>
+              <div class="d-flex flex-column">
+                <label for="bankSelect" class="text mb-1">Tên Ngân Hàng</label>
+                <select id="bankSelect" class="form-select mb-3" aria-label="Chọn ngân hàng">
+                  <option value="" disabled selected>Chọn ngân hàng</option>
+                  <option value="Agribank">Agribank</option>
+                  <option value="Vietcombank">Vietcombank</option>
+                  <option value="VietinBank">VietinBank</option>
+                  <option value="BIDV">BIDV</option>
+                  <option value="ACB">ACB</option>
+                  <option value="Techcombank">Techcombank</option>
+                  <option value="VPBank">VPBank</option>
+                  <option value="MB">MB</option>
+                  <option value="TPBank">TPBank</option>
+                  <option value="HDBank">HDBank</option>
+                  <!-- Thêm các ngân hàng khác nếu cần -->
+                </select>
+              </div>
+            </div>
 
             <div class="col-12">
               <div class="d-flex flex-column">
@@ -137,13 +134,13 @@ session_start();
 
   </div>
   <hr class="hr--large">
-  <div class="space" style="text-align: center; background-color: #white ">
+  <div class="space" style="text-align: center; background-color: white ">
     <img style="" src="../image/thanhspace.PNG">
 
 
     <p class="site-footer__copyright-content">
       © 2025,
-      <a href="http://localhost/BanThucPham/index.php" \title="" style=" color: red"> HUTECH</a>
+      <a href="http://localhost/BanThucPham/index.php" title="" style=" color: red"> HUTECH</a>
   </div>
   </div>
 </body>

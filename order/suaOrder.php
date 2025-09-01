@@ -81,9 +81,9 @@ $row_getCus = mysqli_fetch_array($query_getCus);
 
 
               <li class="nav-item">
-<a class="nav-link" href="../cart" style="color:white;">
-    <i class="fas fa-shopping-cart"></i> GIỎ HÀNG
-</a>
+                <a class="nav-link" href="../cart" style="color:white;">
+                  <i class="fas fa-shopping-cart"></i> GIỎ HÀNG
+                </a>
               </li>
               <?php if (isset($_SESSION['TenDangNhap'])) { ?>
 
@@ -106,9 +106,9 @@ $row_getCus = mysqli_fetch_array($query_getCus);
             </ul>
             <?php
             if (isset($_SESSION['cart'])) {
-              ?>
+            ?>
               <h5></h5>
-              <?php
+            <?php
             }
             ?>
           </div>
@@ -157,10 +157,8 @@ $row_getCus = mysqli_fetch_array($query_getCus);
     </div>
   </div>
   <hr class="hr--large">
-  <div class="space" style="text-align: center; background-color: #white ">
-    <img style="" src="../image/thanhspace.PNG">
-
-
+  <div class="space" style="text-align: center; background-color: white ">
+    <img src="../image/thanhspace.PNG">
     <p class="site-footer__copyright-content">
       © 2025,
       <a href="http://localhost/BanThucPham/index.php" \title="" style=" color: red"> HUTECH</a>

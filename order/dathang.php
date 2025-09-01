@@ -112,10 +112,8 @@ $row_getOrder = mysqli_fetch_array($query_getOrder);
     </form>
 </div>
 <hr class="hr--large">
-<div class="space" style="text-align: center; background-color: #white ">
-    <img style="" src="../image/thanhspace.PNG">
-
-
+<div class="space" style="text-align: center; background-color: white ">
+    <img src="../image/thanhspace.PNG">
     <p class="site-footer__copyright-content">
         © 2025,
         <a href="http://localhost/BanThucPham/index.php" \title="" style=" color: red"> HUTECH</a>
